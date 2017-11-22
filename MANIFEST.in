@@ -1,2 +1,0 @@
-recursive-include osrframework_server/data/ *
-recursive-include osrframework_server/config/ *
