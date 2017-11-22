@@ -1,5 +1,5 @@
-OSRFramework Server
-===================
+OSRFramework Console
+====================
 
 For more information, check the README.
 
