@@ -27,24 +27,24 @@ from setuptools import setup, find_packages
 
 import osrframework.utils.configuration as configuration
 
-import osrframework_server
+import osrframework_console
 
 
-print("[*] Launching the installation of the osrframework_server module...")
+print("[*] Launching the installation of the osrframework_console module...")
 # Launching the setup
 setup(
-    name="osrframework_server",
-    version=osrframework_server.__version__,
-    description="OSRFramework Server - A HTTP server writen in Python to interact with OSRFramework.",
+    name="osrframework_console",
+    version=osrframework_console.__version__,
+    description="OSRFramework Console - A terminal-based user interface to interact with OSRFramework utils.",
     author="Felix Brezo and Yaiza Rubio",
     author_email="contacto@i3visio.com",
-    url="http://github.com/i3visio/osrframework_server",
+    url="http://github.com/i3visio/osrframework_console",
     license="COPYING",
-    keywords = "python osint harvesting profiling maltego username socialmedia forums",
+    keywords = "python osint harvesting profiling username socialmedia forums",
     classifiers=[
         'Development Status :: 4 - Beta',
         'Topic :: Software Development :: Libraries',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
         'Programming Language :: Python :: 2.7',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
@@ -59,12 +59,10 @@ setup(
     packages = find_packages(),
     entry_points={
         'console_scripts': [
-            # Add the configuration script
-            "osrframework_server_v0.18=osrframework_server.server:main"
+            "osrframework_console_v0.18 = osrframework_console.console:main",
         ],
     },
     install_requires=[
-        "osrframework",
-        "flask"
+        "osrframework"
     ]
 )
