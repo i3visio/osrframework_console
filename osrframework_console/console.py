@@ -69,11 +69,11 @@ class OSRFConsoleMain(cmd.Cmd):
     conditions. For additional information about the terms and conditions of the
     AGPLv3+ license, visit <http://www.gnu.org/licenses/agpl-3.0.txt>."""
 
-    intro = banner.text + "\n" + DISCLAIMER + "\n\n"
+    intro = banner.text + "\n" + DISCLAIMER + "\n"
 
-    info  = """
+    info  = general.info("") + general.emphasis("""
     General information
-    ===================
+    ===================""") + """
 
     OSRFConsole is a terminal GUI to interact with OSRFramework utilities.
     OSRFramework stands for Open Sources Research Framework. It includes a set
@@ -82,20 +82,20 @@ class OSRFConsoleMain(cmd.Cmd):
 
     To get additional information about the available commands type 'help'.
 
-    Modules available:
-    ------------------
+    """ + general.emphasis("""Modules available:
+    ------------------""") + """
 
-        - usufy --> the Jewel of the Chrown. A tool that verifies if a
+        - """ + general.success("usufy") + """ --> the Jewel of the Chrown. A tool that verifies if a
             username exists in """ + str(len(platform_selection.getAllPlatformNames("usufy")))  + """ platforms.
-        - mailfy --> a tool to check if a username has been registered in up to
+        - """ + general.success("mailfy") + """ --> a tool to check if a username has been registered in up to
             """ + str(len(mailfy.EMAIL_DOMAINS )) + """ email providers.
-        - searchfy --> a tool to look for profiles using full names and other
+        - """ + general.success("searchfy") + """ --> a tool to look for profiles using full names and other
             info in """ + str(len(platform_selection.getAllPlatformNames("searchfy")))  + """ platforms.
-        - domainfy --> a tool to check the existence of a given domain in up to
+        - """ + general.success("domainfy") + """ --> a tool to check the existence of a given domain in up to
             """ + str(domainfy.getNumberTLD()) + """ different TLDs.
-        - phonefy --> a tool that checks if a phone number has been linked to
+        - """ + general.success("phonefy") + """ --> a tool that checks if a phone number has been linked to
             spam practices in """ + str(len(platform_selection.getAllPlatformNames("phonefy")))  + """ platforms.
-        - entify --> a util to look for regular expressions using """ + str(len(regexp_selection.getAllRegexpNames())) + """ patterns."""
+        - """ + general.success("entify") + """ --> a util to look for regular expressions using """ + str(len(regexp_selection.getAllRegexpNames())) + """ patterns."""
 
     # Appending the self.info data to the headers...
     intro += info
@@ -115,8 +115,8 @@ class OSRFConsoleMain(cmd.Cmd):
         """
         configInfo =  """
 
-    Additional configuration files:
-    -------------------------------
+    """ + general.emphasis("""Additional configuration files:
+    -------------------------------""") + """
 
     You will be able to find more configuration options in the following files
     in your system. The relevant paths are the ones that follow:"""
@@ -124,21 +124,22 @@ class OSRFConsoleMain(cmd.Cmd):
         paths = configuration.getConfigPath()
 
         configInfo += """
+
         - Configuration details about the login credentials in OSRFramework:
-            """  + general.emphasis(os.path.join(paths["appPath"], "accounts.cfg")) + """
+            """  + general.info(os.path.join(paths["appPath"], "accounts.cfg")) + """
         - Configuration details about the API credentials already configured:
-            """  + general.emphasis(os.path.join(paths["appPath"], "api_keys.cfg")) + """
+            """  + general.info(os.path.join(paths["appPath"], "api_keys.cfg")) + """
         - Connection configuration about how the browsers will be connected:
-            """  + general.emphasis(os.path.join(paths["appPath"], "browser.cfg")) + """
+            """  + general.info(os.path.join(paths["appPath"], "browser.cfg")) + """
         - General default configuration of the the utils:
-            """  + general.emphasis(os.path.join(paths["appPath"], "general.cfg")) + """
+            """  + general.info(os.path.join(paths["appPath"], "general.cfg")) + """
         - Directory containing default files as a backup:
-            """  + general.emphasis(paths["appPathDefaults"]) + """
+            """  + general.info(paths["appPathDefaults"]) + """
         - Directory containing the user-defined patterns for entify.py:
-            """  + general.emphasis(paths["appPathPatterns"]) + """
+            """  + general.info(paths["appPathPatterns"]) + """
         - Directory containing the user-defined wrappers for usufy platforms:
-            """  + general.emphasis(paths["appPathWrappers"])
-        print(general.info(self.info) + general.info(configInfo))
+            """  + general.info(paths["appPathWrappers"])
+        print(self.info + configInfo)
 
     def do_use(self, line):
         """
@@ -194,7 +195,7 @@ class OSRFConsoleMain(cmd.Cmd):
         -----
             line: the string of the line typed.
         """
-        print(general.info("\nExiting...\n"))
+        print("\nExiting...\n")
         sys.exit()
 
 
