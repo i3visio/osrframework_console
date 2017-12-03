@@ -59,7 +59,8 @@ setup(
     packages = find_packages(),
     entry_points={
         'console_scripts': [
-            "osrframework_console_v0.18 = osrframework_console.console:main",
+            "osrframework_console = osrframework_console.console:main",
+            "osrfconsole = osrframework_console.console:main",
         ],
     },
     install_requires=[
