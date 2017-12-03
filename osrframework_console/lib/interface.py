@@ -258,15 +258,16 @@ class OSRFConsoleUtil(cmd.Cmd):
             line: the string of the line typed.
         """
         if line.lower() == "options":
-            print(general.info("\nDefining the different options for util " + self.UNAME + "...\n"))
+            print(general.emphasis("\n\tOptions\n\t-------\n"))
             for key in self.CONFIG.keys():
                 print("\t- " + (key + (" (*)." if self.CONFIG[key]["REQUIRED"] else ".") ).ljust(14) + "" + self.CONFIG[key]["DESCRIPTION"])
 
-            print(general.info("\nShowing the current state of the options for util " + self.UNAME + "...\n"))
+            print(general.emphasis("\n\tCurrent values\n\t-------------\n"))
             for key in self.CONFIG.keys():
-                print("\t- " + (key + (" (*)" if self.CONFIG[key]["REQUIRED"] else "") + ": ").ljust(14) + general.emphasis("" if self.CONFIG[key]["CURRENT_VALUE"] == None else utils.listToString(self.CONFIG[key]["CURRENT_VALUE"])))
+                print("\t- " + (key + (" (*)" if self.CONFIG[key]["REQUIRED"] else "") + ": ").ljust(14) + general.info("" if self.CONFIG[key]["CURRENT_VALUE"] == None else utils.listToString(self.CONFIG[key]["CURRENT_VALUE"])))
+
         elif line.lower() == "command":
-            print(general.info("\nEquivalent command to be launched to imitate the current configuration:\n\t$ ") + general.emphasis(self.createCommandLine()))
+            print(general.emphasis("\n\tTerminal command\n\t----------------\n\t\t") + "$ "+ general.info(self.createCommandLine()))
 
     def complete_show(self, text, line, begidx, endidx):
         # First, we will try to get the available parameters
@@ -312,7 +313,7 @@ class OSRFConsoleUtil(cmd.Cmd):
         -----
             line: the string of the line typed.
         """
-        print(general.info("\nDisplaying module information..."))
+        print(self.description)
         self.do_show("options")
         self.do_show("command")
 
