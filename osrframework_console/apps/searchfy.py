@@ -36,7 +36,14 @@ class OSRFConsoleSearchfy(OSRFConsoleUtil):
     # Setting up the name of the module
     UNAME = "searchfy"
 
-    intro = ""
+    intro = """
+    Loading """ + UNAME + """..."""
+
+    description = """
+    A tool to look for people using different search engines found in several
+    platforms. This tool will wrap the search capabilities provided by the
+    platforms."""
+
     # Defining the prompt
     prompt = general.emphasis('\nosrf (' + UNAME + ') > ')
     # Defining the character to create hyphens

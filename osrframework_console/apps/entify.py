@@ -36,7 +36,12 @@ class OSRFConsoleEntify(OSRFConsoleUtil):
     # Setting up the name of the module
     UNAME = "entify"
 
-    intro = ""
+    intro = """
+    Loading """ + UNAME + """..."""
+
+    description = """
+    A tool to look for known regular expressions in remote or local resources."""
+
     # Defining the prompt
     prompt = general.emphasis('\nosrf (' + UNAME + ') > ')
     # Defining the character to create hyphens

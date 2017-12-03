@@ -35,7 +35,14 @@ class OSRFConsoleMailfy(OSRFConsoleUtil):
     # Setting up the name of the module
     UNAME = "mailfy"
 
-    intro = ""
+    intro = """
+    Loading """ + UNAME + """..."""
+
+    description = """
+    A tool to look for known information about email addresses. The analyst will
+    be able to verify the existence of different email accounts as well as
+    trying to find it in leaked databases."""
+
     # Defining the prompt
     prompt = general.emphasis('\nosrf (' + UNAME + ') > ')
     # Defining the character to create hyphens

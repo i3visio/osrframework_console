@@ -36,7 +36,13 @@ class OSRFConsoleUsufy(OSRFConsoleUtil):
     # Setting up the name of the module
     UNAME = "usufy"
 
-    intro = ""
+    intro = """
+    Loading """ + UNAME + """..."""
+
+    description = """
+    A tool to look for registered usernames in different platforms. This tool
+    will verify if a given username does exist."""
+
     # Defining the prompt
     prompt = general.emphasis('\nosrf (' + UNAME + ') > ')
     # Defining the character to create hyphens

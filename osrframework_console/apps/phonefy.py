@@ -36,7 +36,12 @@ class OSRFConsolePhonefy(OSRFConsoleUtil):
     # Setting up the name of the module
     UNAME = "phonefy"
 
-    intro = ""
+    intro = """
+    Loading """ + UNAME + """..."""
+
+    description = """
+    A tool to look for phone numbers being used in known spam practices."""
+
     # Defining the prompt
     prompt = general.emphasis('\nosrf (' + UNAME + ') > ')
     # Defining the character to create hyphens
