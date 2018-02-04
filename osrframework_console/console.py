@@ -3,7 +3,7 @@
 #
 ################################################################################
 #
-#   Copyright 2017 Félix Brezo and Yaiza Rubio
+#   Copyright 2017-2018 Félix Brezo and Yaiza Rubio
 #       (i3visio, contacto@i3visio.com)
 #
 #   This file is part of osrframework_console. You can redistribute it and/or
